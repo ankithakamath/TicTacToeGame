@@ -177,6 +177,112 @@ public int t=0;
 
 		}
 	}
+	public void computerStrategy() {
+		turn = 'c';
+		System.out.println("Computer is playing!!!");
+		if ((board[1] == ' ') && (board[2] == board[3] && board[2] == computerChar)
+				|| (board[4] == board[7] && board[4] == computerChar)
+				|| (board[5] == board[9] && board[5] == computerChar)) {
+			board[1] = computerChar;
+		} else if ((board[2] == ' ') && (board[1] == board[3] && board[3] == computerChar)
+				|| (board[5] == board[8] && board[8] == computerChar)) {
+			board[2] = computerChar;
+		} else if ((board[3] == ' ') && (board[1] == board[2] && board[2] == computerChar)
+				|| (board[6] == board[9] && board[9] == computerChar)
+				|| (board[5] == board[7] && board[7] == computerChar)) {
+			board[3] = computerChar;
+		} else if ((board[4] == ' ') && (board[1] == board[7] && board[1] == computerChar)
+				|| (board[5] == board[6] && board[6] == computerChar)) {
+			board[4] = computerChar;
+		} else if ((board[5] == ' ') && (board[1] == board[9] && board[2] == computerChar)
+				|| (board[7] == board[3] && board[7] == computerChar)
+				|| (board[2] == board[8] && board[8] == computerChar)
+				|| (board[4] == board[6] && board[6] == computerChar)) {
+			board[5] = computerChar;
+		} else if ((board[6] == ' ') && (board[9] == board[3] && board[3] == computerChar)
+				|| (board[5] == board[4] && board[4] == computerChar)) {
+			board[6] = computerChar;
+		} else if ((board[7] == ' ') && (board[1] == board[4] && board[4] == computerChar)
+				|| (board[3] == board[5] && board[3] == computerChar)
+				|| (board[8] == board[9] && board[8] == computerChar)) {
+			board[3] = computerChar;
+		} else if ((board[8] == ' ') && (board[9] == board[7] && board[7] == computerChar)
+				|| (board[2] == board[5] && board[2] == computerChar)) {
+			board[8] = computerChar;
+		} else if ((board[9] == ' ') && (board[1] == board[5] && board[5] == computerChar)
+				|| (board[6] == board[3] && board[3] == computerChar)
+				|| (board[8] == board[7] && board[7] == computerChar)) {
+			board[9] = computerChar;
+		} else if ((board[1] == ' ') && ((board[2] == board[3] && board[2] == playerChar)
+				|| (board[4] == board[7] && board[4] == playerChar)
+				|| (board[5] == board[9] && board[5] == playerChar))) {
+			board[1] = computerChar;
+
+		}
+
+		else if ((board[2] == ' ') && ((board[1] == board[3] && board[3] == playerChar)
+				|| (board[5] == board[8] && board[8] == playerChar))) {
+			board[2] = computerChar;
+		}
+
+		else if ((board[3] == ' ') && ((board[1] == board[2] && board[2] == playerChar)
+				|| (board[6] == board[9] && board[9] == playerChar)
+				|| (board[5] == board[7] && board[7] == playerChar))) {
+			System.out.println("13");
+			board[3] = computerChar;
+		}
+
+		else if ((board[4] == ' ') && ((board[1] == board[7] && board[7] == playerChar)
+				|| (board[5] == board[6] && board[6] == playerChar))) {
+			board[4] = computerChar;
+		}
+
+		else if ((board[5] == ' ') && ((board[1] == board[9] && board[1] == playerChar)
+				|| (board[7] == board[3] && board[7] == playerChar)
+				|| (board[2] == board[8] && board[8] == playerChar)
+				|| (board[4] == board[6] && board[6] == playerChar))) {
+			board[5] = computerChar;
+		}
+
+		else if ((board[6] == ' ') && ((board[9] == board[3] && board[3] == playerChar)
+				|| (board[5] == board[4] && board[4] == playerChar))) {
+			board[6] = computerChar;
+		}
+
+		else if ((board[7] == ' ') && ((board[1] == board[4] && board[4] == playerChar)
+				|| (board[8] == board[9] && board[9] == playerChar)
+				|| (board[5] == board[3] && board[3] == playerChar))) {
+			board[7] = computerChar;
+		}
+
+		else if ((board[8] == ' ') && ((board[9] == board[7] && board[7] == playerChar)
+				|| (board[2] == board[5] && board[2] == playerChar))) {
+			board[8] = computerChar;
+		}
+
+		else if ((board[9] == ' ') && ((board[1] == board[5] && board[5] == playerChar)
+				|| (board[6] == board[3] && board[3] == playerChar)
+				|| (board[8] == board[7] && board[7] == playerChar))) {
+			board[9] = computerChar;
+		}
+
+		 else {
+			computerPlay();
+		}
+		DisplayBoard();
+		checkWinner();
+		desiredLocation();
+	}
+
+	public void computerPlay() {
+		while (true) {
+			int index = rn.nextInt(9) + 1;
+			if (board[index] == ' ') {
+				board[index] = computerChar;
+				break;
+			}
+		}
+		}
 	public static void main(String[] args) {
 		System.out.println("Welcome to the game of Tic Tac Toe");
         TicTacToe t=new TicTacToe();
@@ -184,6 +290,5 @@ public int t=0;
         t.ChooseCharecter();
         t.toss();
         t.desiredLocation();
-        t.checkWinner();
-
+        t.computerStrategy();
 }}
