@@ -56,6 +56,20 @@ public class TicTacToe {
 			desiredLocation();
 		}
 	}
+	public void CheckFreeSpace()
+	{
+		
+		if(board[index]==' ')					
+		{
+			board[index]=playerChar;
+			DisplayBoard();
+		}
+		else
+			{
+				System.out.println("Please enter different index current one is already filled!!!");
+				desiredLocation();					
+				CheckFreeSpace();
+			}}
 	public static void main(String[] args) {
 		System.out.println("Welcome to the game of Tic Tac Toe");
         TicTacToe t=new TicTacToe();
@@ -63,6 +77,7 @@ public class TicTacToe {
         t.ChooseCharecter();
         t.DisplayBoard();
         t.desiredLocation();
-	}
+        t.CheckFreeSpace();
+        	}
 
 }
