@@ -1,11 +1,13 @@
 package com.yml.tictactoe;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class TicTacToe {
 
 	private char[] board = new char[10];
-
+    public int index;
+    public char playerChar, computerChar;
+    
 	public void DisplayBoard()
 	{
 		
@@ -44,13 +46,23 @@ public class TicTacToe {
 
 		}
 	} 
-	
+	public void desiredLocation() {
+		System.out.println("Player is playing");
+		System.out.println("Please enter the index 1 to 9");
+		Scanner sc= new Scanner(System.in);
+		index = sc.nextInt();
+		if (index < 1 || index > 9) {
+			System.out.println("Please enter the valid index");
+			desiredLocation();
+		}
+	}
 	public static void main(String[] args) {
 		System.out.println("Welcome to the game of Tic Tac Toe");
         TicTacToe t=new TicTacToe();
         t.Createboard();
         t.ChooseCharecter();
         t.DisplayBoard();
+        t.desiredLocation();
 	}
 
 }
