@@ -1,5 +1,6 @@
 package com.yml.tictactoe;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class TicTacToe {
@@ -7,6 +8,9 @@ public class TicTacToe {
 	private char[] board = new char[10];
     public int index;
     public char playerChar, computerChar;
+    Scanner sc = new Scanner(System.in);
+	Random rn = new Random();
+	public char turn = ' ';
     
 	public void DisplayBoard()
 	{
@@ -70,14 +74,36 @@ public class TicTacToe {
 				desiredLocation();					
 				CheckFreeSpace();
 			}}
+	public void toss()
+	{
+		System.out.println("Player do you want to choose head or tail (1 or 0)");
+		Scanner sc= new Scanner(System.in);
+		int choice=sc.nextInt();							
+		
+		
+		int flipResult=rn.nextInt(2);						
+		
+		if(choice==flipResult)
+		{
+			System.out.println("Its player's turn!!!");
+			turn='p';
+			
+			
+		}
+		else
+		{
+			System.out.println("Its computer's turn!!!");
+			turn='c';
+			
+		}}
+		
 	public static void main(String[] args) {
 		System.out.println("Welcome to the game of Tic Tac Toe");
         TicTacToe t=new TicTacToe();
         t.Createboard();
         t.ChooseCharecter();
-        t.DisplayBoard();
+        t.toss();
         t.desiredLocation();
-        t.CheckFreeSpace();
-        	}
+        
 
-}
+}}
