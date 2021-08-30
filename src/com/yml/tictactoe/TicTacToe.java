@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class TicTacToe {
-
+public int t=0;
 	private char[] board = new char[10];
     public int index;
     public char playerChar, computerChar;
@@ -97,6 +97,86 @@ public class TicTacToe {
 			
 		}}
 		
+	public char isWin() {
+		String line = null;
+
+		// to check if there is an winning situation
+		for (int a = 1; a < 10; a++) {
+
+			switch (a) {
+			case 1:
+				line = "" + board[1] + board[2] + board[3];
+				break;
+			case 2:
+				line = "" + board[4] + board[5] + board[6];
+				break;
+			case 3:
+				line = "" + board[7] + board[8] + board[9];
+				break;
+			case 4:
+				line = "" + board[1] + board[4] + board[7];
+				break;
+			case 5:
+				line = "" + board[2] + board[5] + board[8];
+				break;
+			case 6:
+				line = "" + board[3] + board[6] + board[9];
+				break;
+			case 7:
+				line = "" + board[1] + board[5] + board[9];
+				break;
+			case 8:
+				line = "" + board[3] + board[5] + board[7];
+				break;
+			}
+			// For X winner
+			if (line.equals("XXX")) {
+				return 'X';
+			}
+
+			// For O winner
+			else if (line.equals("OOO")) {
+				return 'O';
+			}
+		}
+		int a1;
+
+		for (a1 = 1; a1 < 10; a1++) {
+
+			if (board[a1] == ' ') {
+				break;
+			}
+		}
+		if (a1 == 9)
+			return 'd';
+		else
+			return 'n';
+	}
+
+	/** display the winning player or indicate a tie (or unfinished game). */
+	public void checkWinner() {
+
+		char win = isWin();
+		if (win == playerChar) {
+			System.out.println("You have won the game");
+			t = 1;
+		} else if (win == computerChar) {
+			System.out.println("Computere has won the game");
+			t = 1;
+		} else if (win == 'd') {
+			System.out.println("It's a draw! Thanks for playing");
+			t = 1;
+		} else if (win == 'n') {
+			if (turn == 'p') {
+				turn = 'c';
+
+			} else {
+				turn = 'p';
+
+			}
+
+		}
+	}
 	public static void main(String[] args) {
 		System.out.println("Welcome to the game of Tic Tac Toe");
         TicTacToe t=new TicTacToe();
@@ -104,6 +184,6 @@ public class TicTacToe {
         t.ChooseCharecter();
         t.toss();
         t.desiredLocation();
-        
+        t.checkWinner();
 
 }}
