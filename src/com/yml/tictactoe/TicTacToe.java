@@ -6,6 +6,18 @@ public class TicTacToe {
 
 	private char[] board = new char[10];
 
+	public void DisplayBoard()
+	{
+		
+		for(int i = 1 ; i<10 ; i+=3)
+		{
+
+			
+			System.out.println(" " + board[i] + " | " + board[i+1] + " | " + board[i+2] + " ");
+			System.out.println("-----------");
+		}
+}
+
 	public void ChooseCharecter() {
 		System.out.println("Enter the input(X or O) ");
 		Scanner sc = new Scanner(System.in);
@@ -38,6 +50,7 @@ public class TicTacToe {
         TicTacToe t=new TicTacToe();
         t.Createboard();
         t.ChooseCharecter();
+        t.DisplayBoard();
 	}
 
 }
